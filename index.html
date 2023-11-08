@@ -4,30 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Name Generator</title>
-     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1 class="mainheading">Random Name Generator</h1>
 
     <h2 class="heading-1">Add People's Names</h2>
-    <!-- <input type="text" id="nameInput" placeholder="Enter a name" class="inputname"> -->
     <div class="input-group">
         <input required="" id="nameInput" type="text" name="text" autocomplete="off" class="input">
         <label class="user-label">Enter a Name</label>
-      </div>
+    </div>
 
     <button onclick="addName()" class="button-1">Add Name</button>
-   
-          
-    <!-- <button  onclick="addName()" class="ui-btn">
-        <span>
-            Add Name
-        </span>
-      </button> -->
 
     <h2 class="heading-2">Randomly Selected Name</h2>
     <p id="randomName" class="randomnames"></p>
+
     
+
     <script>
         let people = [];
 
@@ -44,23 +38,34 @@
             nameInput.value = "";
 
             if (people.length === 30) {
-                // Disable the "Add Name" button when 30 names are added.
                 document.getElementById("nameInput").disabled = true;
             }
+
+            // Update the list with the entered names
+            const enteredNamesList = document.getElementById("enteredNamesList");
+            const listItem = document.createElement("li");
+            listItem.textContent = name;
+            enteredNamesList.appendChild(listItem);
         }
 
         function selectRandomName() {
             if (people.length > 0) {
                 const randomIndex = Math.floor(Math.random() * people.length);
                 const randomName = people[randomIndex];
-                people.splice(randomIndex, 1); // Remove the selected name
+                people.splice(randomIndex, 1);
                 document.getElementById("randomName").textContent = randomName;
             } else {
                 alert("All names have been selected.");
             }
         }
     </script>
-    
+
     <button onclick="selectRandomName()" class="button-2">Generate Random Name</button>
+    <h2 class="heading-3">Entered Names</h2>
+    <ul id="enteredNamesList" class="entered-names"></ul>
 </body>
 </html>
+
+
+
+

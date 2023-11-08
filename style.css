@@ -295,3 +295,15 @@ body {
 
     }
   }
+
+  .heading-3{
+    color:white;
+    margin-top:38px;
+  }
+  
+  .entered-names{
+    color:rgb(250, 136, 136);
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 550;
+  }
